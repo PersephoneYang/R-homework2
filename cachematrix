@@ -13,7 +13,8 @@ output: html_document
 
 ## this function is going to make a matrix, which is going to be calculated
 ## the inverse.
-## the input has to be a matrix which is able to be found an inverse
+## Although the homework assume all the matrix is invertible, the input had better be
+## a matrix which is invertible, in order to avoid error.
 ## to be capable of being cached, the matrix must go through this function first
 
 makeCacheMatrix <- function(x = matrix()) {
