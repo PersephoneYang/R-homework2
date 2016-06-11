@@ -6,7 +6,7 @@ output: html_document
 ---
 
 ## in total, these 2 functions together will make it possible for the user to
-## calculate the inverse of a matrix and cache the result after the first caculation.
+## calculate the inverse of a matrix and cache the result after the first calculation.
 ## since the result is cached, the user can get it directly, using the second
 ## function, when it is needed.
 
@@ -34,11 +34,11 @@ makeCacheMatrix <- function(x = matrix()) {
 
 ## this function is going to calculate the inverse of the matrix, which is an output 
 ## of the former function.
-## if the inverse have not been calculated yet, this function will calculate the
+## if the inverse has not been calculated yet, this function will calculate the
 ## inverse.
 ## if the inverse is already calculated and cached, this function will return the
 ## cached value directly, meanwhile, print a message "getting cached data", as a
-## indicator of not doing the caculating this time.
+## indicator of not doing the calculating this time.
 
 cacheSolve <- function(x, ...) {
         m <- x$getinverse()
