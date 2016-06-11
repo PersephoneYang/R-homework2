@@ -1,0 +1,53 @@
+---
+title: "cachematrix.R"
+author: "Yan Yang"
+date: "June 11, 2016"
+output: html_document
+---
+
+## in total, these 2 functions together will make it possible for the user to
+## calculate the inverse of a matrix and cache the result after the first caculation.
+## since the result is cached, the user can get it directly, using the second
+## function, when it is needed.
+
+
+## this function is going to make a matrix, which is going to be calculated
+## the inverse.
+## the input has to be a matrix which is able to be found an inverse
+## to be capable of being cached, the matrix must go through this function first
+
+makeCacheMatrix <- function(x = matrix()) {
+        m <- NULL
+        set <- function(y) {
+                x <<- y
+                m <<- NULL
+        }
+        get <- function()
+        x
+        setinverse <- function(inverse)
+        m <<- inverse
+        getinverse <- function()
+        m
+        list(set = set, get = get, setinverse = setinverse, getinverse = getinverse)
+}
+
+
+## this function is going to calculate the inverse of the matrix, which is an output 
+## of the former function.
+## if the inverse have not been calculated yet, this function will calculate the
+## inverse.
+## if the inverse is already calculated and cached, this function will return the
+## cached value directly, meanwhile, print a message "getting cached data", as a
+## indicator of not doing the caculating this time.
+
+cacheSolve <- function(x, ...) {
+        m <- x$getinverse()
+        if(!is.null(m)) {
+                message("getting cached data")
+                return(m)
+        }
+        data <- x$get()
+        m <- solve(data)
+        x$setinverse(m)
+        m
+}
